@@ -4,8 +4,6 @@ const taskInput = document.getElementById('input');
 const AllTasks = document.getElementById('all');
 const CompleteTasks = document.getElementById('completed');
 const IncompleteTasks = document.getElementById('incomplete');
-const CompleteAll = document.getElementById('completeAll');
-const DeleteCompleted = document.getElementById('deleteCompleted');
 
 let allTask = 0;
 let completedTask = 0;
@@ -109,28 +107,7 @@ function filterIncompleteTasks(){
         }});
 }
 
-function markAllCompleted(){
-    const todos = taskList.childNodes;
 
-    todos.forEach(function(todo){
-        todo.classList.add('completed');
-    });
-    completedTask = allTask;
-    updateCount();
-}
-
-function deleteAllCompleted(){
-    const todos = taskList.querySelectorAll('.completed');
-    
-    todos.forEach(function(todo){
-        if (todo.classList.contains('completed')){
-            completedTask--;
-            allTask--;
-            todo.remove();
-        }
-    });
-    updateCount();
-}
 
 function updateCount(){
     document.getElementById('allCount').innerText = allTask;
